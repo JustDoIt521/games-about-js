@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script type="text/javascript">
+			var temp=new Array(10);
+			var x=100,y=100,i=0,j=0;
+			/*var context=document.getElementById("snack").getContext("2d");
+				context.fillStyle="#1E90FF";
+				context.fillRect(100,100,10,10);*/
+			function draw(d)
+			{
+				var context=document.getElementById("snack").getContext("2d");
+				context.fillStyle="#1E90FF";
+				//context.fillRect(100,100,10,10);
+				if(d==1)
+				{
+					x=x-10;
+					context.fillRect(x,y,10,10);
+				}
+				if(d==2)
+				{
+					y=y-10;
+					context.fillRect(x,y,10,10);
+				}
+				if(d==3)
+				{
+					x=x+10;
+					context.fillRect(x,y,10,10);
+				}
+				if(d==4)
+				{
+					y=y+10;
+					context.fillRect(x,y,10,10);
+				}
+			}
+			window.onkeydown=function(e)
+			{
+				var key = window.event ? e.keyCode : e.which;//use in firefox
+				//var key=event.keyCode;  //google coule use this
+				switch(key)
+				{
+					case 37:
+							//alert("1");
+						temp[i]=1;
+					break;
+					case 38:
+						temp[i]=2;
+					break;
+					case 39:
+						temp[i]=3;
+					break;
+					case 40:
+						temp[i]=4;
+					break;
+					}
+					i++;
+					//alert(temp[i]);
+					x=100;
+					y=100;
+					for(j=0;j<i;j++)
+						draw(temp[j]);
+			} 
+		</script>
+	</head>
+	<body>
+		<canvas id="snack" width="400" height="400" style="background:#DCDCDC;border:2px solid #000000;"></canvas>
+	</body>
+	<script type="text/javascript">
+		var context=document.getElementById("snack").getContext("2d");
+			context.fillStyle="#1E90FF";
+			context.fillRect(100,100,10,10);
+	</script>
+</html>
