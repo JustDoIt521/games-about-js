@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			var x=100,y=100,temp,key,i=0,j=1;
+			window.onkeydown=function(e)
+			{
+				key=window.event ?e.keyCode:e.which;
+				if(i==j)
+				{
+					clearInterval(temp);
+					j++;
+					temp=setInterval("move()",100);
+				}
+				else
+				{
+					clearInterval(temp);
+					temp=setInterval("move()",100);
+					i++;
+				}
+				switch(key)
+				 {
+				 	case 37:
+				 		//temp=setInterval("move()",500);
+				 		console.log("left");
+				 		break;
+				 	case 38:
+				 		console.log("up");
+				 		break;
+				 	case 39:
+				 		console.log("right");
+				 		break;
+				 	case 40:
+				 		console.log("down");
+				 		break;
+				 }
+			}
+			function move()
+			{
+				var context=document.getElementById("test").getContext("2d");
+				context.fillStyle="#1E90FF";
+				if(key==37)
+				{
+					x=x-20;
+					context.fillRect(x,y,20,20);
+					context.fillStyle="#DCDCDC";
+					context.fillRect(x+20,y,20,20);
+				}
+				if(key==38)
+				{
+					y=y-20;
+					context.fillRect(x,y,20,20);
+					context.fillStyle="#DCDCDC";
+					context.fillRect(x,y+20,20,20);
+				}
+				if(key==39)
+				{
+					x=x+20;
+					context.fillRect(x,y,20,20);
+					context.fillStyle="#DCDCDC";
+					context.fillRect(x-20,y,20,20);
+				}
+				if(key==40)
+				{
+					y=y+20;
+					context.fillRect(x,y,20,20);
+					context.fillStyle="#DCDCDC";
+					context.fillRect(x,y-20,20,20);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="test" width="500" height="500" style="background:#DCDCDC;border:2px solid #1E90FF;">
+		</canvas>
+	</body>
+	<script type="text/javascript">
+	var context=document.getElementById("test").getContext("2d");
+		context.fillStyle="#1E90FF";
+		context.fillRect(100,100,20,20);
+	</script>
+</html>
