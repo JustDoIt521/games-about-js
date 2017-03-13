@@ -69,29 +69,6 @@
 		</head>
 		<body>
 			<table border="0px">
-				<!--<tr>
-					<td id="one"></td>
-					<td id="two"></td>
-					<td id="three"></td>
-					<td id="four"></td>
-				<tr>
-					<td id="five"></td>
-					<td id="six"></td>
-					<td id="seven"></td>
-					<td id="eight"></td>
-				</tr>
-				<tr>
-					<td id="nine"></td>
-					<td id="ten"></td>
-					<td id="eleven"></td>
-					<td id="twelve"></td>
-				</tr>
-				<tr>
-					<td id="thirteen"></td>
-					<td id="fourteen"></td>
-					<td id="fifteen"></td>
-					<td id="sixteen"></td>
-				</tr>-->
 				<tr>
 					<td id="1"></td>
 					<td id="2"></td>
@@ -116,11 +93,6 @@
 					<td id="16"></td>
 				</tr>
 		<script type="text/javascript">
-		/*var m=4,n=0,j=3;
-		m="color"+m;
-		n=n*4+j+1;
-		console.log(m);
-		document.getElementById(n).className=m;*/
 			var map=[[2,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],num;
 			var key={"37":"move(1)","38":"move(2)","39":"move(3)","40":"move(4)"};
 			function value()
@@ -134,8 +106,9 @@
 			}
 			function direction()
 			{
-				var i,j,n,m="",k=0;
+				var i=0,j=0,n=0,m="",k=0;
 				for(i=0;i<4;i++)
+				{
 				for(j=0;j<4;j++)
 					if(map[i][j]==0)
 						{
@@ -143,15 +116,19 @@
 							k=1;
 							break;
 						}
+				if(k==1)
+					break;
+				}
 				if(k==0)
 				{
-					alter("GameOver !");
-					return ;
+					alert("GameOver !");
+					return 0;
 				}
 				else
 				{
 					m="color"+num;
-					n=i*4+j+1;
+					n=4*i+j+1;
+					//console.log(h);
 					document.getElementById(n).className=m;
 					document.getElementById(n).innerHTML=num;
 				}
@@ -166,7 +143,7 @@
 						n=4*i+j+1;
 						m="color"+map[i][j];
 						//n=String(n);
-						console.log(n);
+						//console.log(k);
 						if(map[i][j]!=0)
 						{
 							document.getElementById(n).innerHTML=map[i][j];
@@ -290,8 +267,6 @@
 				eval(key[(e?e:event).keyCode]);
 			}
 			update();
-			//document.getElementById("one").innerHTML="test";
-			//document.getElementById("two").style.backgroundColor='#FFFFFF';
 		</script>
 	</body>
 </html>
