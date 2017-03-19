@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#test
+			{
+				background:#DCDCDC;
+				width:500px;
+				height:400px;
+				margin-top:50px;
+				margin-left:auto;
+				margin-right:auto;
+				position:relative;
+			}
+			#test1
+			{
+				background:#1E90FF;
+				width:80px;
+				height:80px;
+				margin:5px;
+				position:relative;
+			}
+			#test2
+			{
+				background:#1E90FF;
+				width:80px;
+				height:80px;
+				margin:5px;
+				position:relative;
+			}
+			.CD
+			{
+				background:#FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test">
+			<div id="test1">
+			</div>
+			<div id="test2">
+			</div>
+		</div>
+	</body>
+		<script type="text/javascript">
+			var mousex,mousey,t1,t2,l1,l2,t,l;
+			var test=document.getElementById("test");
+			var test1=document.getElementById("test1");
+			var test2=document.getElementById("test2");
+			//console.log(test1.offsetTop);
+			t=test.offsetTop;
+			l=test.offsetLeft;
+			//console.log(t,l);
+			t1=test1.offsetTop;
+			t2=test2.offsetTop;
+			l1=test1.offsetLeft;
+			l2=test2.offsetLeft;
+			var m1,m2,n1,n2;
+			m1=t+t1;
+			m2=t+t2;
+			n1=l1+l;
+			n2=l2+l;
+			function mousemove(e)
+			{
+				e=e||window.event;
+				if(e.pageX||e.pageY)
+				{
+					mousex=e.pageX;
+					mousey=e.pageY;
+					//console.log(mousex,mousey,n1,m1);
+					if((mousex>n1&&mousex<=n1+80)&&(mousey>m1&&mousey<=m1+80))
+					{
+						//console.log(1);
+						test1.style.background="#FFFFFF";
+					}
+					else
+					{
+						test1.style.background="#1E90FF";
+					}
+					//console.log(mousex.mousey);
+					//mousex=e.layerX;
+					//mousey=e.layerY;
+					//console.log(mousex,mousey);
+				}
+			}
+			document.onmousemove=mousemove;
+		</script>
+</html>
